@@ -10,14 +10,14 @@ def analyze_and_plot_dataset_brightness(dataset_dir, bins=50):
     and plots a histogram of the overall image brightness distribution.
 
     Args:
-        dataset_dir (str): Path to the top-level directory containing the subfolders.
+        dataset_dir (str): Path to the top-level directory containing the 'set' folders.
         bins (int): The number of bins for the histogram.
     """
     # A list to store the average brightness value of each individual image.
     all_images_brightness_values = []
     
-    # List of subfolders to process.
-    subfolders = [f'cam{i}' for i in range(6)]
+    # List of subfolders to process, changed to 'set1', 'set2', 'set3'.
+    subfolders = ['set1', 'set2', 'set3']
     
     # Supported image extensions.
     supported_extensions = ('.png', '.jpg', '.jpeg', '.bmp', '.tiff')
@@ -80,7 +80,7 @@ def analyze_and_plot_dataset_brightness(dataset_dir, bins=50):
     plt.hist(all_images_brightness_values, bins=bins, color='skyblue', edgecolor='black')
     
     # Set graph title and labels.
-    plt.title('Image Brightness Distribution for the Entire Training Dataset', fontsize=16)
+    plt.title('Image Brightness Distribution for the Entire Training Dataset (Set1-3)', fontsize=16)
     plt.xlabel('Average Brightness (0=Black, 255=White)', fontsize=12)
     plt.ylabel('Number of Images', fontsize=12)
     plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -99,7 +99,7 @@ def analyze_and_plot_dataset_brightness(dataset_dir, bins=50):
 # --- Main execution block ---
 if __name__ == "__main__":
     # ⚠️ Set the path to your top-level training dataset folder here.
-    # (The folder containing 'cam0', 'cam1', etc.)
+    # (The folder containing 'set1', 'set2', 'set3', etc.)
     TRAIN_DATASET_PATH = '/Users/eogus/Desktop/Dataset/2025DNA/SemanticDataset_final/image/train'
 
     if not os.path.isdir(TRAIN_DATASET_PATH):
